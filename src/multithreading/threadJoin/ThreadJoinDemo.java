@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.threadJoin;
 
 public class ThreadJoinDemo implements Runnable {
     Thread t;

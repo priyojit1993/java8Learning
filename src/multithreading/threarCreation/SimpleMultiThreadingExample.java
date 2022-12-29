@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.threarCreation;
 
 public class SimpleMultiThreadingExample {
 

@@ -1,17 +1,15 @@
-package multithreading;
+package multithreading.threarCreation;
 
-public class MultiThreadingUsingRunnableInterface implements Runnable {
+public class MultiThreadingUsingThreadClass extends Thread {
 
-    Thread t;
-
-    public MultiThreadingUsingRunnableInterface(String threadName) {
-        t = new Thread(this, threadName);
-        t.start();
+    public MultiThreadingUsingThreadClass(String name) {
+        super(name);
+        this.start();
     }
 
     @Override
     public void run() {
-        System.out.println("Thread started ... " + t);
+        System.out.println("Thread started ... " + this);
         for (int i = 1; i <= 10; i++) {
             System.out.println(Thread.currentThread() + " " + i);
             try {
@@ -20,12 +18,13 @@ public class MultiThreadingUsingRunnableInterface implements Runnable {
                 e.printStackTrace();
             }
         }
-        System.out.println("Thread ended ... " + t);
+        System.out.println("Thread ended ... " + this);
     }
+
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Main thread stared ...." + Thread.currentThread());
-        MultiThreadingUsingRunnableInterface t1 = new MultiThreadingUsingRunnableInterface("T1");
+        MultiThreadingUsingThreadClass t1 = new MultiThreadingUsingThreadClass("T1");
         for (int i = 1; i <= 10; i++) {
             System.out.println(Thread.currentThread() + " " + i);
             try {
@@ -37,7 +36,3 @@ public class MultiThreadingUsingRunnableInterface implements Runnable {
         System.out.println("Main thread ends ...." + Thread.currentThread());
     }
 }
-
-
-
-
